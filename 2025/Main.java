@@ -7,9 +7,11 @@ import java.util.*;
 // NOTE: Removed delta times and tied all gravity directly to the Java.util timer - 3/7/2025
 
 // For Pi Day 2025 (3/14/2025): The variable collisions tracks the collisions between the spheres and the right wall!
-// To calculate Pi with this, we can use the formula pi = collisions / sqrt(m2 / m1) (usually take the floor of this number)
+// To calculate Pi with this, we can use the formula pi = collisions / sqrt(m2 / m1) (usually take the floor of this number), where m1 = mass of first object and m2 = mass of second
 // See 3b1b's video for more details: https://www.youtube.com/watch?v=6dTyOl1fmDo
 // Note: Collisions will break after a certain point, don't make the masses too high, I haven't coded this for super high precision
+// The default values for the masses are 100 and 1, so a ratio of 100:1, and plugging this in to the equation above, we get pi = collisions (spoiler: 31 for 100:1) / sqrt(100) = 31 / 10 = 3.1
+// Try it out!
 public class Main {
     public static double collisions = 0;
     public static void main(String[] args) {
@@ -28,7 +30,7 @@ public class Main {
 
         // Testing solution to planets phasing through each other
         os.addPlanet(200, 200, 1, 10);
-        os.addPlanet(150, 200, 64, 10);
+        os.addPlanet(150, 200, 100, 10);
         // os.planets.get(1).velocity[1] += -0.5;
         os.planets.get(1).velocity[0] += 0.05;
 
